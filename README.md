@@ -18,4 +18,4 @@ from.
 
 This project showcases the idea of classes and iheritance in c++ using shapes. 
 We made use of pointers and vectors. 
-To run the code, clone the rectblock.h file , implementation file and the filereaddata including datablock.dat 
+To run the code, clone the main.cpp file , implementation file including datablock.dat 

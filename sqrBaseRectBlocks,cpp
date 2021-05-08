@@ -1,0 +1,33 @@
+//Melissa Boateng , Bright Okrah
+#include <vector>
+#include <fstream>
+#include <iostream>
+#include <stdio.h>
+//#include "rectBlocks.cpp"
+
+using namespace std;
+/* Square class */
+class sqrBaseRectBlocks: public rectBlocks{
+    public:
+        sqrBaseRectBlocks(int w, int h, int l):rectBlocks(w, h, l){}
+};
+
+//obain squares from rectangle
+vector<sqrBaseRectBlocks> onlySquares(vector<rectBlocks>& rects){
+    vector<sqrBaseRectBlocks> squareBlocks;
+    for(int i = 0; i < rects.size(); i++){
+        if(rects[i].getWidth() == rects[i].getHeight()){
+            sqrBaseRectBlocks sqrObj(rects[i].getWidth(), rects[i].getHeight(), rects[i].getLength());
+            squareBlocks.push_back(sqrObj);
+        }
+    }
+    return squareBlocks;
+}
+
+//print squares
+void printSquares(vector<sqrBaseRectBlocks>& squares){
+    cout << "Printing only square blocks" << "\n";
+    for(int i = 0; i < squares.size(); i++){
+        cout << "Width: " << squares[i].getWidth() << " Height: "<< squares[i].getHeight() <<" Length: " << squares[i].getLength() << "\n";
+    }
+}

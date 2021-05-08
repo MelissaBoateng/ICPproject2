@@ -1,0 +1,33 @@
+//Melissa Boateng Bright Okrah
+#include <vector>
+#include <fstream>
+#include <iostream>
+#include <stdio.h>
+//#include "sqrBaseRectBlocks.cpp"
+using namespace std;
+
+/* Cuboid class */
+class cuboidBlocks: public sqrBaseRectBlocks{
+     public:
+        cuboidBlocks(int w, int h, int l):sqrBaseRectBlocks(w, h, l){}
+};
+
+//obtain cuboid from squares
+vector<cuboidBlocks> onlyCuboids(vector<sqrBaseRectBlocks>& squares){
+    vector<cuboidBlocks> cub;
+    for(int i=0; i < squares.size(); i++){
+        if(squares[i].getHeight() == squares[i].getLength()){
+            cuboidBlocks cuboid(squares[i].getWidth(), squares[i].getHeight(), squares[i].getLength());
+            cub.push_back(cuboid);
+        }
+    }
+    return cub;
+}
+
+//print cuboids
+void printCuboids(vector<cuboidBlocks> cubs){
+    cout << "Printing only cuboid blocks" << "\n";
+    for(int i = 0; i < cubs.size(); i++){
+        cout << "Width: " << cubs[i].getWidth() << " Height: "<< cubs[i].getHeight() <<" Length: " << cubs[i].getLength() << "\n";
+    }
+}
